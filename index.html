@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Interface</title>
+</head>
+
+<body>
+
+    <form id="query-form">
+        <input type="text" id="query-input" placeholder="Enter your query here">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('query-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            document.getElementById('response').innerText = "waiting";
+
+            // const queryInput = document.getElementById('query-form')
+            // queryInput.id = "last"
+            const query = `${document.getElementById('query-input').value}`;
+            const response = await fetch('http://localhost:3000/retriever', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query }),
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.response;
+            //document.getElementById('response').id = "lastid";
+
+            //creation input
+            // const input = document.createElement('input');
+            // input.type = 'text';
+            // input.placeholder = 'Entrez du texte';
+            // input.value = 'Bonjour';
+            // input.id = "query-form"
+            // document.body.appendChild(input);
+            //
+        });
+    </script>
+
+</body>
+
+</html>

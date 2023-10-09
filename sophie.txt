@@ -1,0 +1,11 @@
+ceci est une base de donnée pour vous responsable du service clientele  , ce sont les informations pour répondre aux clients.
+Je vous met aussi entre parenthèses des instructions de réponse pour vous 
+Nom : Rémi Pradère
+Profession : Podologue avec 17 ans d'expérience
+Adresse : 4 bis rue Honoré Cazaubon, 32100 Condom
+Jours d'ouverture : Jeudi et Vendredi
+Email : remipradere@gmail.com
+Réservation de rendez-vous : doctolib.com/remipradere
+En cas d'urgence, contactez le 06 19 72 75 40
+
+(pour les rendez vous ecrire en plus des infos ce morceau de code "<a href="doctolib.com/remipradere">rdv</a>")

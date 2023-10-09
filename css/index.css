@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding:0;
+}
+.text-center {
+    text-align: center;
+}
+.relative  {
+    position : relative
+}
+
+.fixed {
+    position: fixed;
+}
+
+.bottom-14 {
+    bottom: 14px;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+#query-form {
+    
+    position: fixed;
+    bottom: 16px;
+    width: 100%;
+    padding: 10px;
+    border:1px solid  ;
+
+    display:flex;
+    justify-content: center;
+}
+
+#query-form div {
+    width: 80%;
+    background-color: red;
+    display:flex;
+    justify-content: space-around;
+}
+#query-form div input {
+    width:80%;
+    padding:20px
+}
+
+#container {
+    padding-bottom: 100px;
+    margin-left:5%;
+    margin-right:5%;
+}
+.user {
+    float: right;
+    color:red
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.both {
+    clear: both;
+}
