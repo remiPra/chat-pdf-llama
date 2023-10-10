@@ -60,7 +60,7 @@
             r.style.display = "block"
             container.appendChild(r);
 
-            const response = await fetch(`/retriever`, {
+            const response = await fetch(`https://beautiful-puppy-1dbb7d.netlify.app/retriever`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query }),
