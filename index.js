@@ -8,11 +8,9 @@ const dotenv = require('dotenv');
 const { initializeApp, cert } = require('firebase-admin/app');
 var admin = require("firebase-admin");
 const { getStorage, getDownloadURL } = require('firebase-admin/storage');
-
-
-
 const app = express();
 const serviceAccount = require('./service.json');
+
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: "chat-pdf-26609.appspot.com",
@@ -107,7 +105,11 @@ app.post('/retriever', async (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/chattest.html`);
 });
-
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+// app.listen(3000, () => {
+//     console.log('Server is running on http://localhost:3000');
+// });
