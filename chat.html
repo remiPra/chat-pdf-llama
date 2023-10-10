@@ -20,7 +20,9 @@
     
     <div id="container"></div>
 
-    <script>
+    <script type="module">
+        
+
         document.getElementById('query-form').addEventListener('submit', async function (e) {
             const query = `${document.getElementById('query-input').value}`;
             e.preventDefault();
@@ -57,7 +59,6 @@
             r.style.maxWidth = "60%"
             r.style.display = "block"
             container.appendChild(r);
-            const BASE_URL = 'https://your-deployed-app.vercel.app';
 
             const response = await fetch(`/retriever`, {
                 method: 'POST',

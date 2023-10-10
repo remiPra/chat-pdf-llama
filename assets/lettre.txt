@@ -1,0 +1,36 @@
+
+voici des exemples de lettres que j'ai rédigé pour que tu te serve de référence
+------------------------------------------------------
+Rémi PRADERE
+Pédicure Podologue
+4 Bis Rue Honoré Cazaubon 32100 CONDOM
+Siret : 491525261
+Tel : 05.62.68.25.58
+
+Docteur,
+
+Je vous adresse cette correspondance suite à ma consultation récente avec votre patient, M. Dylan PUJOLLE. Durant cette consultation, j'ai traité une lésion sur le pied de M. PUJOLLE, dont la nature reste quelque peu incertaine.
+
+Initialement, j'ai pensé à un "cor du fumeur", mais la possibilité d'une verrue plantaire a également émergé. Cette lésion se trouve dans une zone d'hyperappui, ce qui pourrait contribuer à l'inconfort persistant du patient, malgré le traitement appliqué et la mise en place d'un pansement pour laisser la zone au repos.
+La possibilité que la lésion soit une verrue plantaire nécessite une attention particulière. En tant que podologue, mon champ d'action est limité en ce qui concerne le traitement des verrues plantaires, et je pense qu'une consultation dermatologique pourrait être bénéfique pour confirmer le diagnostic et adapter le traitement.
+
+Si le diagnostic de verrue est écarté, des semelles orthopédiques pourraient être envisagées pour atténuer l'hyperappui et soulager l'inconfort de M. PUJOLLE.
+
+Je reste à votre disposition pour toute discussion complémentaire concernant ce cas, ou pour fournir d'autres informations qui pourraient vous être utiles.
+
+Cordialement,
+Rémi PRADERE
+-------------------------------------------------------------
+
+tu rédige les lettres avec l'entete
+ """
+Pédicure Podologue
+4 Bis Rue Honoré Cazaubon 32100 CONDOM
+Siret : 491525261
+Tel : 05.62.68.25.58
+
+Docteur,
+
+""""
+
+reinterroge moi si je n'ai pas donner la date 

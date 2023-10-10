@@ -2,7 +2,6 @@ const express = require('express');
 const fs = require('fs').promises;
 const {ContextChatEngine, Document, OpenAI, SimpleDirectoryReader, VectorStoreIndex, serviceContextFromDefaults } = require('llamaindex');
 const dotenv = require('dotenv');
-
 const app = express();
 
 // Parse JSON bodies of incoming requests
@@ -10,12 +9,14 @@ app.use(express.json());
 app.use('/css', express.static(__dirname + '/css'));
 
 
+
 let chatEngine=null
 
 async function initialize() {
     dotenv.config();
-    const essay = await fs.readFile("assets/ia.txt", "utf-8");
+    const essay = await fs.readFile("assets/lettre.txt", "utf-8");
     const document = new Document({ text: essay });
+    console.log('le doculent est : ' + JSON.stringify(document))
     console.log(process.env.OPENAI_API_KEY)
     const serviceContext = serviceContextFromDefaults({
         llm: new OpenAI({
@@ -32,7 +33,7 @@ async function initialize() {
 
 initialize().catch(console.error);
 
-app.post('/retriever', async (req, res) => {
+app.post(`/retriever`, async (req, res) => {
 
     try {
         const userQuery = req.body.query;

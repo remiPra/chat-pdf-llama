@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs')
+const axios =require('axios')
 
 const { ContextChatEngine, Document, OpenAI, SimpleDirectoryReader, VectorStoreIndex, serviceContextFromDefaults } = require('llamaindex');
 const dotenv = require('dotenv');
@@ -16,7 +18,7 @@ admin.initializeApp({
     storageBucket: "chat-pdf-26609.appspot.com",
 
 
-  });
+});
 
 
 // Parse JSON bodies of incoming requests
@@ -27,10 +29,11 @@ let chatEngine = null
 
 async function initialize(textFile) {
     dotenv.config();
-    
 
-    const document = new Document({ text: textFile   });
 
+    const document = new Document({ text: textFile });
+    console.log("le document c'est bon")
+    console.log(document)
     const serviceContext = serviceContextFromDefaults({
         llm: new OpenAI({
             model: "gpt-4",
@@ -44,17 +47,37 @@ async function initialize(textFile) {
 
     return chatEngine
 }
+async function fetchFileContent(url) {
+    try {
+        let response = await axios.get(url);
+        return response.data;
+    } catch (error) {
+        console.error("Erreur complète:", error.response ? error.response.data : error.message);
+        throw new Error('Erreur de réseau lors de la tentative');
+    }
+}
+
+
 app.post('/upload', async (req, res) => {
     try {
         const { fileName } = req.body;
         console.log(fileName)
-            //const file = req.file;
+        //const file = req.file;
         const fileRef = getStorage().bucket().file(fileName);
-        const downloadURL= await getDownloadURL(fileRef);
-        console.log(downloadURL)
+        console.log('le fichier est ' + fileRef)
+        const firebaseMetadata = await fileRef.getMetadata();
+
         
 
-        const resto = await initialize(downloadURL); // initialise avec le nouveau doc
+        const downloadURL = await getDownloadURL(fileRef)
+        console.log(downloadURL)
+        let fileContent = await fetchFileContent(downloadURL);
+        console.log(fileContent)
+        // const data = await readFileAsync(downloadURL);
+       
+        // console.log('le downloadURL est + ' +  data)
+        //const text = await fs.readFile(downloadURL)
+        const resto = await initialize(fileContent); // initialise avec le nouveau doc
 
     }
     catch (err) {
