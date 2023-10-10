@@ -129,7 +129,7 @@
                 body: JSON.stringify({ query }),
             });
             const data = await response.json();
-            document.getElementById('response').innerText = data.response;
+            document.getElementById('response').innerHTML = data.response;
             r.id = 'responselast'
             r.style.color = "white";
             r.style.float = "left";

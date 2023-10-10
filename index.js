@@ -14,9 +14,7 @@ const serviceAccount = require('./service.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: "chat-pdf-26609.appspot.com",
-    
-    
+    storageBucket: "chat-pdf-26609.appspot.com",   
 });
 
 app.use(cors());
@@ -100,12 +98,10 @@ app.post('/retriever', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-// app.get('/is-ready', (req, res) => {
-//     res.status(200).json({ isReady: chatEngine, hello: "hello" });
-// });
+
 
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/index.html`);
+    res.sendFile(`${__dirname}/chattest.html`);
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
