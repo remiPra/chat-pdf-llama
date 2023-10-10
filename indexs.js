@@ -3,12 +3,15 @@ const fs = require('fs').promises;
 const {ContextChatEngine, Document, OpenAI, SimpleDirectoryReader, VectorStoreIndex, serviceContextFromDefaults } = require('llamaindex');
 const dotenv = require('dotenv');
 const app = express();
+const cors = require('cors');
+
 
 // Parse JSON bodies of incoming requests
 app.use(express.json());
 app.use('/css', express.static(__dirname + '/css'));
 
 
+app.use(cors());
 
 let chatEngine=null
 
