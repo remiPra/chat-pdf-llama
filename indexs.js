@@ -36,7 +36,7 @@ async function initialize() {
 
 initialize().catch(console.error);
 
-app.post(`/retriever`, async (req, res) => {
+app.post(`https://beautiful-puppy-1dbb7d.netlify.app/retriever`, async (req, res) => {
 
     try {
         const userQuery = req.body.query;
