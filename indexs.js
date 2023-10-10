@@ -49,7 +49,7 @@ app.get('/is-ready', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/chat.html`);
+    res.sendFile(`${__dirname}/index.html`);
 });
 
 const PORT = process.env.PORT || 3000;
