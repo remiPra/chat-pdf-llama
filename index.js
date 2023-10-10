@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs')
 const axios =require('axios')
+const cors = require('cors');
 
 const { ContextChatEngine, Document, OpenAI, SimpleDirectoryReader, VectorStoreIndex, serviceContextFromDefaults } = require('llamaindex');
 const dotenv = require('dotenv');
@@ -14,10 +15,11 @@ const serviceAccount = require('./service.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: "chat-pdf-26609.appspot.com",
-
-
+    
+    
 });
 
+app.use(cors());
 
 // Parse JSON bodies of incoming requests
 app.use(express.json());
