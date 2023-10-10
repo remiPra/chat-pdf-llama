@@ -1,10 +1,14 @@
 const { ContextChatEngine, Document, OpenAI, SimpleDirectoryReader, VectorStoreIndex, serviceContextFromDefaults } = require('llamaindex');
 const dotenv = require('dotenv');
 const fs = require('fs').promises;
+const cors = require('cors')
 
 dotenv.config();
 
 let chatEngine = null;
+app.use(cors({
+    origin: ['https://main--beautiful-puppy-1dbb7d.netlify.app', 'https://another-allowed-domain.com'],
+}));
 
 async function initialize() {
     const essay = await fs.readFile("assets/lettre.txt", "utf-8");
