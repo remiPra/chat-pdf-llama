@@ -63,18 +63,18 @@
             headers.append('Content-Type', 'application/json');
             headers.append('Accept', 'application/json');
 
-            headers.append('Access-Control-Allow-Origin', 'https://beautiful-puppy-1dbb7d.netlify.app');
+            headers.append('Access-Control-Allow-Origin', 'https://gentle-reef-77823-60b3683bfbc1.herokuapp.com/');
             headers.append('Access-Control-Allow-Credentials', 'true');
 
             headers.append('GET', 'POST', 'OPTIONS');
 
 
             // const response = await fetch(`/retriever`
-            const response = await fetch(`https://beautiful-puppy-1dbb7d.netlify.app/.netlify/functions/retriever`
+            const response = await fetch(`/retriever`
             
             , {
                 method: 'POST',
-                mode:"no-cors",
+                // mode:"no-cors",
                 headers: headers,
                 body: JSON.stringify({ query }),
             });
