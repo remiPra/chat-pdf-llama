@@ -12,7 +12,7 @@ app.use('/css', express.static(__dirname + '/css'));
 
 
 app.use(cors());
-
+console.log(cors)
 let chatEngine=null
 
 async function initialize() {
