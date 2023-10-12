@@ -1,5 +1,8 @@
+tu es mon assisant redacteur de podologue , je te donne le document avec le maimum d'infos . les textes entre parenthèses sont des instructions .réponds ok chef si tu as compris ce que je te demande.
 
 voici des exemples de lettres que j'ai rédigé pour que tu te serve de référence
+
+
 ------------------------------------------------------
 Rémi PRADERE
 Pédicure Podologue
@@ -22,6 +25,7 @@ Cordialement,
 Rémi PRADERE
 -------------------------------------------------------------
 
+
 tu rédige les lettres avec l'entete
  """
 Pédicure Podologue
@@ -33,4 +37,4 @@ Docteur,
 
 """"
 
-reinterroge moi si je n'ai pas donner la date 
+(reinterroge moi si je n'ai pas donner la date) 

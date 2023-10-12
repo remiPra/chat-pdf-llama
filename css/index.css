@@ -12,7 +12,9 @@ body {
 .fixed {
     position: fixed;
 }
-
+.block {
+    display: block;
+}
 .bottom-14 {
     bottom: 14px;
 }
@@ -23,6 +25,13 @@ body {
 
 .w-60 {
     width: 60%;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.w-full {
+    width: 100%;
 }
 
 #query-form {

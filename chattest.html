@@ -17,10 +17,14 @@
         </div>
     </form>
     <h1 id="loader" class="text-center mb-100">Chatter avec vos documents</h1>
+    <a href="/about">À propos</a>
+
 
     <div id="container">
-        <label>document a ajouter : </label>
-        <input type="file" id="fileInput">
+        <div id="doc">
+            <label>document a ajouter : </label>
+            <input type="file" id="fileInput" />
+        </div>
         <div class="both"></div>
     </div>
     <script type="module">
@@ -52,15 +56,31 @@
             .addEventListener('change', async (e) => {
                 const fileInput = document.getElementById('fileInput');
                 const file = e.target.files[0];
+                const buttonQuery = document.getElementById('button-query')
 
-                //                const file = document.getElementById('fileInput').files[0];
+                let compteur = 15;
+                const docz = document.getElementById('doc');
+
+                const intervalId = setInterval(() => {
+                    if (compteur > 0) {
+                        buttonQuery.disabled = true
+                        docz.textContent = "le doc sera pret dans" + compteur + 'secondes';
+                        compteur--;
+                    } else {
+                        buttonQuery.disabled = false
+                        docz.style.display = 'none';
+                        clearInterval(intervalId);
+                    }
+                }, 1000);  // Chaque 1000 millisecondes (soit 1 seconde)
+
+                // docz.style.display = 'none'
                 const storage = await getStorage();
                 console.log(storage)
                 const storageRef = ref(storage, file.name);
                 uploadBytes(storageRef, file).then((snapshot) => {
                     console.log('Uploaded a blob or file!');
                 });
-                const fileName = file.name  
+                const fileName = file.name
 
                 try {
                     //  const response = await fetch('/upload', { /* upload du fichier */ });
@@ -69,7 +89,7 @@
                         //body: formData
                         headers: { 'Content-Type': 'application/json' },
 
-                        body:JSON.stringify({ fileName :file.name}) 
+                        body: JSON.stringify({ fileName: file.name })
                     });
                 } catch (error) {
 
@@ -129,15 +149,15 @@
                 body: JSON.stringify({ query }),
             });
             const data = await response.json();
-            document.getElementById('response').innerHTML = data.response;
+            document.getElementById('response').innerHTML =  data.response;
             r.id = 'responselast'
-            r.style.color = "white";
+            r.style.color = "black";
             r.style.float = "left";
             r.style.marginTop = "20px";
             r.style.marginBottom = "100px";
             r.style.padding = "10px";
-            r.style.backgroundColor = "red";
-            r.style.border = "1px solid white";
+            r.style.backgroundColor = "white";
+            r.style.border = "1px solid black";
             r.style.borderRadius = "25px";
 
             buttonQuery.disabled = false
@@ -163,11 +183,7 @@
             }
         }
 
-        // Démarrez la vérification au chargement de la page
-        // window.onload = function () {
-        //     document.getElementById('loader').innerText = 'block';
-        //     checkIfReady();
-        // }
+
     </script>
 
 </body>
